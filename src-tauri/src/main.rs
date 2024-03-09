@@ -7,10 +7,10 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
-use steamworks;
+use steamworks::Client;
 
 fn main() {
-    let (client, _) = steamworks::Client::init().unwrap();
+    let (_client, _single) = Client::init_app(221100).unwrap();
 
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
